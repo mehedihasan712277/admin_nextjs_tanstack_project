@@ -1,1 +1,1 @@
-admin panel live link : 
+admin panel live link : https://admin-nextjs-tanstack-project.vercel.app/
