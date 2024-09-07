@@ -9,7 +9,7 @@ import InboxIcon from '@mui/icons-material/Inbox';
 import DraftsIcon from '@mui/icons-material/Drafts';
 import { useState } from 'react';
 import { Collapse } from '@mui/material';
-import { ExpandLess, ExpandMore, StarBorder } from '@mui/icons-material';
+import { AddCircle, Assignment, BarChart, ExpandLess, ExpandMore, Inventory, Settings, StarBorder } from '@mui/icons-material';
 
 const Sidebar = () => {
     const [selectedIndex, setSelectedIndex] = useState(0);
@@ -42,9 +42,9 @@ const Sidebar = () => {
                     }}
                 >
                     <ListItemIcon>
-                        <InboxIcon sx={{ color: selectedIndex === 0 ? '#fff' : '#C0C0C0' }} /> {/* Change icon color */}
+                        <Assignment sx={{ color: selectedIndex === 0 ? '#fff' : '#C0C0C0' }} ></Assignment>
                     </ListItemIcon>
-                    <ListItemText primary="Inbox" />
+                    <ListItemText primary="Order" />
                 </ListItemButton>
 
                 <ListItemButton
@@ -60,9 +60,9 @@ const Sidebar = () => {
                     }}
                 >
                     <ListItemIcon>
-                        <DraftsIcon sx={{ color: selectedIndex === 1 ? '#fff' : '#C0C0C0' }} />
+                        <BarChart sx={{ color: selectedIndex === 1 ? '#fff' : '#C0C0C0' }} ></BarChart>
                     </ListItemIcon>
-                    <ListItemText primary="Drafts" />
+                    <ListItemText primary="Statistics" />
                 </ListItemButton>
 
                 <ListItemButton
@@ -81,18 +81,44 @@ const Sidebar = () => {
                     }}
                 >
                     <ListItemIcon>
-                        <InboxIcon sx={{ color: selectedIndex === 2 ? '#fff' : '#C0C0C0' }} />
+                        <Inventory sx={{ color: selectedIndex === 2 ? '#fff' : '#C0C0C0' }} ></Inventory>
                     </ListItemIcon>
-                    <ListItemText primary="Inbox" />
+                    <ListItemText primary="Products" />
                     {open ? <ExpandLess /> : <ExpandMore />}
                 </ListItemButton>
-                <Collapse in={open} timeout="auto" unmountOnExit>
+                <Collapse in={open} timeout="auto" unmountOnExit sx={{ paddingX: 2 }}>
                     <List component="div" disablePadding>
-                        <ListItemButton sx={{ pl: 4, color: '#C0C0C0', '&:hover': { bgcolor: '#1E3A8A', color: '#fff' } }}>
+                        <ListItemButton
+                            selected={selectedIndex === 3}
+                            onClick={(event) => handleListItemClick(event, 3)}
+                            sx={{
+                                pl: 4,
+                                '&:hover': { bgcolor: '#1E3A8A', color: '#fff' },
+                                color: selectedIndex === 3 ? '#fff' : '#C0C0C0', // Active/Inactive text color
+                                bgcolor: selectedIndex === 3 ? '#34495e !important' : 'inherit', // Active background color
+                                borderRadius: 5
+                            }}>
                             <ListItemIcon>
-                                <StarBorder sx={{ color: '#C0C0C0' }} />,
+                                <Settings sx={{ color: '#C0C0C0' }} ></Settings>
                             </ListItemIcon>
-                            <ListItemText primary="Starred" />
+                            <ListItemText primary="Manage" />
+                        </ListItemButton>
+
+                        <ListItemButton
+                            selected={selectedIndex === 4}
+                            onClick={(event) => handleListItemClick(event, 4)}
+                            sx={{
+                                pl: 4,
+                                '&:hover': { bgcolor: '#1E3A8A', color: '#fff' },
+                                color: selectedIndex === 4 ? '#fff' : '#C0C0C0', // Active/Inactive text color
+                                bgcolor: selectedIndex === 4 ? '#34495e !important' : 'inherit', // Active background color
+                                borderRadius: 5
+                            }}
+                        >
+                            <ListItemIcon>
+                                <AddCircle sx={{ color: '#C0C0C0' }} ></AddCircle>
+                            </ListItemIcon>
+                            <ListItemText primary="Add new" />
                         </ListItemButton>
                     </List>
                 </Collapse>
@@ -100,11 +126,11 @@ const Sidebar = () => {
             <Divider sx={{ bgcolor: 'white' }} />
             <List component="nav" aria-label="secondary mailbox folder">
                 <ListItemButton
-                    selected={selectedIndex === 3}
-                    onClick={(event) => handleListItemClick(event, 3)}
+                    selected={selectedIndex === 5}
+                    onClick={(event) => handleListItemClick(event, 5)}
                     sx={{
-                        color: selectedIndex === 3 ? '#fff' : '#C0C0C0',
-                        bgcolor: selectedIndex === 3 ? '#34495e !important' : 'inherit',
+                        color: selectedIndex === 5 ? '#fff' : '#C0C0C0',
+                        bgcolor: selectedIndex === 5 ? '#34495e !important' : 'inherit',
                         '&:hover': {
                             bgcolor: '#1E3A8A',
                         },
@@ -114,11 +140,11 @@ const Sidebar = () => {
                     <ListItemText primary="Trash" />
                 </ListItemButton>
                 <ListItemButton
-                    selected={selectedIndex === 4}
-                    onClick={(event) => handleListItemClick(event, 4)}
+                    selected={selectedIndex === 6}
+                    onClick={(event) => handleListItemClick(event, 6)}
                     sx={{
-                        color: selectedIndex === 4 ? '#fff' : '#C0C0C0',
-                        bgcolor: selectedIndex === 4 ? '#34495e !important' : 'inherit',
+                        color: selectedIndex === 6 ? '#fff' : '#C0C0C0',
+                        bgcolor: selectedIndex === 6 ? '#34495e !important' : 'inherit',
                         '&:hover': {
                             bgcolor: '#1E3A8A',
                         },
