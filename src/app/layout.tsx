@@ -21,10 +21,10 @@ export default function RootLayout({
           <div className="fixed top-0 left-0 right-0">
             <Navbar></Navbar>
           </div>
-          <div className="fixed left-0 top-[80px] bottom-0 w-[320px]">
+          <div className="fixed left-0 top-[120px] bottom-0 w-[320px]">
             <Sidebar></Sidebar>
           </div>
-          <div className="ml-[320px] mt-[80px]">
+          <div className="ml-[320px] mt-[120px]">
             {children}
           </div>
         </TanstackProvider>
