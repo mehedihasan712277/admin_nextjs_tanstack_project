@@ -18,13 +18,13 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <TanstackProvider>
-          <div className="fixed top-0 left-0 right-0">
+          <div className="fixed top-0 left-0 right-0 z-10">
             <Navbar></Navbar>
           </div>
-          <div className="fixed left-0 top-[120px] bottom-0 w-[320px]">
+          <div className="fixed left-0 top-[120px] bottom-0 w-[320px] hidden sm:block z-10">
             <Sidebar></Sidebar>
           </div>
-          <div className="ml-[320px] mt-[120px]">
+          <div className="sm:ml-[320px] mt-[120px]">
             {children}
           </div>
         </TanstackProvider>
